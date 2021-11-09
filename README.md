@@ -1,2 +1,2 @@
 # cs-video-call-eps
-The external proxy server for the FiveM resource "cs-video-call".
+This is a node.js application and its sole purpose is to be used in conjuction (when needed) with "cs-video-call" FiveM resource.

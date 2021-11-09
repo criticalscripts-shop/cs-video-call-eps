@@ -1,0 +1,11 @@
+{
+    "private": true,
+    "main": "server.js",
+    "version": "3.0.0",
+    "description": "Critical Scripts | Video Call Proxy Server | https://criticalscripts.shop",
+    "dependencies": {
+        "node-fetch": "^2.6.1",
+        "node-turn": "^0.0.6",
+        "socket.io": "^2.3.0"
+    }
+}
