@@ -171,7 +171,7 @@ server.on('connection', socket => {
                     verifiedSockets[socket.id] = true
                     socket.emit('verified')
                 } else {
-                    console.error(`[criticalscripts.shop] Peer "${socket.handshake.address}" could not be verified due to server rejection (${response.text().trim() || 'Unknown Body'}).`)
+                    console.error(`[criticalscripts.shop] Peer "${socket.handshake.address}" could not be verified due to server rejection (${res.text().trim() || 'Unknown Body'}).`)
 
                     if (peerDataBySocket[socket.id])
                         peerDataBySocket[socket.id].fatalError('The peer could not be verified.')
