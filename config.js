@@ -13,7 +13,7 @@ module.exports = {
     // Whether to use / host the WebSocket server as HTTPS or not for the proxy server. This is required if your phone resource is using "cerulean" FX version.
     // Hosting the WebSocket server as HTTPS will require a signed key and a signed certificate. Self-signing will not work.
     'httpsWebSocket': {
-        'use': false,
+        'host': false,
         'keyPath': null,
         'certPath': null
     },
