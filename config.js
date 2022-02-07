@@ -2,10 +2,10 @@
 
 module.exports = {
     // The public IP address of the proxy server the clients will use to connect to, leaving this to null will work in most cases otherwise set your proxy server's public IP address.
-    'proxyIpAddress': null,
+    'ipAddress': null,
 
     // The port the proxy server will listen to, this port needs to be allowed in the proxy server's firewall on both TCP and UDP protocols.
-    'proxyPort': 34540,
+    'port': 34540,
 
     // The IP address the proxy server will listen to, leave this to null to automatically listen on all network interfaces.
     'listeningIpAddress': null,

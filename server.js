@@ -4,10 +4,10 @@ const http = require('http')
 const turnServer = new (require('node-turn'))({
     authMech: 'long-term',
     realm: 'criticalscripts.shop',
-    listeningPort: config.proxyPort,
+    listeningPort: config.port,
     listeningIps: config.listeningIpAddress ? [config.listeningIpAddress] : null,
-    relayIps: config.proxyIpAddress ? [config.proxyIpAddress] : null,
-    externalIps: config.proxyIpAddress ? [config.proxyIpAddress] : null
+    relayIps: config.ipAddress ? [config.ipAddress] : null,
+    externalIps: config.ipAddress ? [config.ipAddress] : null
 })
 
 let users = []
@@ -17,9 +17,9 @@ const webServer = http.createServer({}, async (req, res) => {
         const buffers = []
 
         for await (const chunk of req)
-          buffers.push(chunk)
-      
-        const data = Buffer.concat(buffers).toString();
+            buffers.push(chunk)
+
+        const data = Buffer.concat(buffers).toString()
         const json = JSON.parse(data)
 
         switch (json.type) {
@@ -41,7 +41,6 @@ const webServer = http.createServer({}, async (req, res) => {
                 break
 
             case 'reset':
-
                 for (let index = 0; index < users.length; index++)
                     turnServer.removeUser(users[index])
 
@@ -64,4 +63,4 @@ if (config.debugTurnPair)
     turnServer.addUser('criticalscripts', 'criticalscripts')
 
 turnServer.start()
-webServer.listen(config.proxyPort, config.listeningIpAddress, () => console.log(`[criticalscripts.shop] Video Call TURN Proxy Server | Listening (${config.listeningIpAddress || '0.0.0.0'}:${config.proxyPort})`))
+webServer.listen(config.port, config.listeningIpAddress, () => console.log(`[criticalscripts.shop] Video Call Proxy Server | Listening (${config.listeningIpAddress || '0.0.0.0'}:${config.port})`))
