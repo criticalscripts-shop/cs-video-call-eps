@@ -1,3 +1,5 @@
+process.env.NODE_ENV = 'production'
+
 const config = require('./config.js')
 const http = require('http')
 
